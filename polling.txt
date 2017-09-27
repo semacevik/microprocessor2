@@ -1,0 +1,29 @@
+.data
+.code
+	ldi 0 0x901
+loop 	ld 1 0
+	ldi 2 0x1
+	and 1 1 2
+	jz loop
+	ldi 0 0x900
+	ld 0 0
+pollingloop
+	push 0
+	push 1
+	ldi 0 0x901
+	ldi 5 1
+	ld 1 0
+	and 1 1 5
+	jz pollingloop
+	dec 0
+	ld 0 0
+sumloop
+	add 2 2 0
+	dec 0
+	jz out
+	jmp sumloop
+out
+	ldi 1 0xB00
+	st 1 2
+	pop 1
+	pop 0
